@@ -11,7 +11,8 @@ from models.url_model import train_url_model
 from models.header_model import train_header_model
 
 # CARREGAR DADOS
-df = pd.read_csv("data/raw/meajor.csv")
+url = "https://zenodo.org/records/18471483/files/meajor_cleaned_preprocessed.csv?download=1"
+df = pd.read_csv(url, low_memory=False)
 
 # LIMPEZA
 df["label"] = pd.to_numeric(df["label"], errors="coerce")
